@@ -27,25 +27,58 @@ class _BottomNavigatorViewState extends State<BottomNavigatorView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.transparent,
       body: allViews[selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: (val) {
-          setState(() {
-            selectedIndex = val;
-          });
-        },
-        items: [
-          BottomNavigationBarItem(icon: Icon(CupertinoIcons.chat_bubble,color: MyColor.grayColor,),label: "Chat",),
-          BottomNavigationBarItem(icon: Icon(CupertinoIcons.phone_fill,color: MyColor.grayColor,),label: "Call"),
-          BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.person_badge_plus_fill,color: MyColor.grayColor,),label: "Friends"),
-          BottomNavigationBarItem(icon: Icon(CupertinoIcons.profile_circled,color: MyColor.grayColor,),label: 'Profile'),
-        ],
-          selectedItemColor: MyColor.whiteColor,
-          unselectedItemColor: MyColor.whiteColor,
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(left: 8.0, right: 8.0,bottom: 8.0),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(50),
+          child: BottomNavigationBar(
+            currentIndex: selectedIndex,
+              type: BottomNavigationBarType.fixed,
+              backgroundColor: MyColor.lightblackColor,
 
-          selectedLabelStyle: TextStyle(color: Colors.white), // Set selected label color to white
-          unselectedLabelStyle: TextStyle(color: Colors.white)
+              onTap: (val) {
+                setState(() {
+                  selectedIndex = val;
+                });
+              },
+              items: [
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    CupertinoIcons.chat_bubble,
+                    color: selectedIndex == 0 ? MyColor.blueColor : MyColor.grayColor,
+                  ),
+                  label: "Chat",
+                ),
+                BottomNavigationBarItem(
+                    icon: Icon(
+                      CupertinoIcons.phone_fill,
+                      color: selectedIndex == 1 ? MyColor.blueColor :  MyColor.grayColor,
+                    ),
+                    label: "Call"
+                ),
+                BottomNavigationBarItem(
+                    icon: Icon(
+                      CupertinoIcons.person_badge_plus_fill,
+                      color: selectedIndex == 2 ? MyColor.blueColor :  MyColor.grayColor,
+                    ),
+                    label: "Add Friends"
+                ),
+                BottomNavigationBarItem(
+                    icon: Icon(
+                      CupertinoIcons.profile_circled,
+                      color: selectedIndex == 3 ? MyColor.blueColor :  MyColor.grayColor,
+                    ),
+                    label: 'Profile'
+                ),
+              ],
+              selectedItemColor: MyColor.whiteColor,
+              unselectedItemColor: MyColor.grayColor,
+              selectedLabelStyle: TextStyle(
+                  color: Colors.white), // Set selected label color to white
+              unselectedLabelStyle: TextStyle(color: Colors.white)),
+        ),
       ),
     );
   }
