@@ -55,11 +55,11 @@ class HomeView extends StatelessWidget {
             /////// All users ///////
             Expanded(
               child: ListView.builder(
-                itemCount: 10,
+                itemCount: MyColor.images.length,
                   itemBuilder: (context , index) {
                   return Padding(
                     padding: const EdgeInsets.symmetric(vertical: 4.0),
-                    child: AllUsersView(),
+                    child: AllUsersView(imagesPath: MyColor.images[index].toString(),index: index,),
                   );
                   }),
             )
