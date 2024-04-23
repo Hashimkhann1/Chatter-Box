@@ -14,7 +14,7 @@ class ChatView extends StatelessWidget {
   final _auth = FirebaseAuth.instance.currentUser!;
 
   final _messageController = TextEditingController();
-  // final ChatViewModel chatViewModel = ChatViewModel();
+  final ChatViewModel chatViewModel = ChatViewModel();
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +45,7 @@ class ChatView extends StatelessWidget {
         child: Column(
           children: [
             StreamBuilder(
-                stream: FirebaseFirestore.instance.collection('chat_rooms').doc('${_auth.uid}_$reciverId').collection('messages').snapshots(),
+                stream: chatViewModel.getMessages(_auth.uid.toString(), reciverId.toString()),
                 builder: (context , snapshot) {
                   if(snapshot.hasError){
                     return const Center(
@@ -77,7 +77,7 @@ class ChatView extends StatelessWidget {
                               child: Container(
                                 width: 200,
                                 margin: const EdgeInsets.symmetric(vertical: 5),
-                                padding: const EdgeInsets.all(10),
+                                padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 4),
                                 decoration: BoxDecoration(
                                     color: snapshot.data!.docs[index]['senderUid'] != reciverId ? Colors.grey.shade800 : MyColor.blueColor,
                                     borderRadius: BorderRadius.only(
@@ -120,12 +120,13 @@ class ChatView extends StatelessWidget {
                 children: [
                   Expanded(
                     child: TextFormField(
+                      controller: _messageController,
                       decoration: InputDecoration(
-                          prefixIcon: const Icon(
-                            CupertinoIcons.search,
-                            color: MyColor.grayColor,
-                          ),
-                          hintText: "Search you chat",
+                          // prefixIcon: const Icon(
+                          //   CupertinoIcons.search,
+                          //   color: MyColor.grayColor,
+                          // ),
+                          hintText: "Type something...",
                           hintStyle:
                           const TextStyle(color: MyColor.grayColor, fontSize: 13),
                           filled: true,
@@ -136,11 +137,11 @@ class ChatView extends StatelessWidget {
                     ),
                   ),
                   IconButton(
-                      onPressed: (){
-                        // if(_messageController.text.isNotEmpty){
-                        //   chatViewModel.sendMessage(context, reciverId, _messageController.text.toString());
-                        //   _messageController.clear();
-                        // }
+                      onPressed: () async {
+                        if(_messageController.text.isNotEmpty){
+                           await chatViewModel.sendMessage(reciverId, _messageController.text.toString());
+                          _messageController.clear();
+                        }
                       },
                       icon: const Icon(Icons.send)
                   )
