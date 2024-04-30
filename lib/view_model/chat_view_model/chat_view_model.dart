@@ -4,12 +4,16 @@ import 'package:chatter_box/res/constatnt/constant.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:image_picker/image_picker.dart';
 
 class ChatViewModel {
 
   final _firestore = FirebaseFirestore.instance;
   final _auth = FirebaseAuth.instance;
   final Constant constant = Constant();
+
+  final ImagePicker _imagePicker = ImagePicker();
+
 
   /// send message method
   // Future sendMessage(BuildContext context , String reciverId , message) async {
@@ -36,7 +40,7 @@ class ChatViewModel {
   // }
 
 
-// send message
+  /// send message
   Future<void> sendMessage(String reciverID, message) async {
     try {
       // get currrent user info
@@ -67,7 +71,7 @@ class ChatViewModel {
   }
 
 
-  //get message
+  /// get message
   Stream<QuerySnapshot> getMessages(String userId, otherUserId) {
     // construct a chatroom ID for the two users
     List<String> ids = [userId, otherUserId];
@@ -80,6 +84,13 @@ class ChatViewModel {
         .collection('messages')
         .orderBy('timestamp', descending: false)
         .snapshots();
+  }
+
+
+  /// pick image
+  Future<XFile?> pickImageFromGllery() async {
+    final XFile? file = await _imagePicker.pickImage(source: ImageSource.gallery);
+    return file;
   }
 
 }
