@@ -1,10 +1,13 @@
 import 'package:chatter_box/res/my_colors.dart';
 import 'package:chatter_box/res/widgets/my_text.dart';
+import 'package:chatter_box/view_model/bloc/pick_image_from_gallery/pick_image_bloc/pick_image_bloc.dart';
+import 'package:chatter_box/view_model/bloc/pick_image_from_gallery/pick_image_event_bloc/pick_image_event_bloc.dart';
 import 'package:chatter_box/view_model/chat_view_model/chat_view_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ChatView extends StatelessWidget {
   final String userName;
@@ -128,13 +131,23 @@ class ChatView extends StatelessWidget {
                           // ),
                           hintText: "Type something...",
                           hintStyle:
-                          const TextStyle(color: MyColor.grayColor, fontSize: 13),
+                          const TextStyle(color: MyColor.grayColor, fontSize: 14),
                           filled: true,
                           fillColor: MyColor.lightblackColor,
                           border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(30),
                               borderSide: BorderSide.none)),
                     ),
+                  ),
+                  IconButton(
+                      onPressed: () async {
+                        context.read<PickImageBloc>().add(PickImageFromGallery());
+                        // if(_messageController.text.isNotEmpty){
+                        //    await chatViewModel.sendMessage(reciverId, _messageController.text.toString());
+                        //   _messageController.clear();
+                        // }
+                      },
+                      icon: const Icon(CupertinoIcons.photo_on_rectangle)
                   ),
                   IconButton(
                       onPressed: () async {
@@ -144,7 +157,7 @@ class ChatView extends StatelessWidget {
                         }
                       },
                       icon: const Icon(Icons.send)
-                  )
+                  ),
                 ],
               ),
             ),
