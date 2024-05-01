@@ -89,7 +89,11 @@ class ChatViewModel {
 
   /// pick image
   Future<XFile?> pickImageFromGllery() async {
-    final XFile? file = await _imagePicker.pickImage(source: ImageSource.gallery);
+    final XFile? file = await _imagePicker.pickImage(source: ImageSource.gallery).then((value) {
+      if(value != null){
+
+      }
+    });
     return file;
   }
 
