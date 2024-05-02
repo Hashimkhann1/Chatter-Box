@@ -1,6 +1,7 @@
 
 
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 
 abstract class PickImageEventBloc extends Equatable {
 
@@ -11,4 +12,9 @@ abstract class PickImageEventBloc extends Equatable {
 
 }
 
-class PickImageFromGallery extends PickImageEventBloc {}
+class PickImageFromGallery extends PickImageEventBloc {
+  final BuildContext context;
+  final String reciverId;
+
+  PickImageFromGallery({required this.context,required this.reciverId});
+}
