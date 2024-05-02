@@ -1,3 +1,5 @@
+// import 'dart:js';
+
 import 'package:chatter_box/res/my_colors.dart';
 import 'package:chatter_box/res/widgets/my_text.dart';
 import 'package:chatter_box/view_model/bloc/pick_image_from_gallery/pick_image_bloc/pick_image_bloc.dart';
@@ -141,7 +143,7 @@ class ChatView extends StatelessWidget {
                   ),
                   IconButton(
                       onPressed: () async {
-                        context.read<PickImageBloc>().add(PickImageFromGallery());
+                        context.read<PickImageBloc>().add(PickImageFromGallery(context: context,reciverId: reciverId));
                         // if(_messageController.text.isNotEmpty){
                         //    await chatViewModel.sendMessage(reciverId, _messageController.text.toString());
                         //   _messageController.clear();
