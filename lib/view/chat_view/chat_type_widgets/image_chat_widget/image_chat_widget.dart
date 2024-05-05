@@ -31,19 +31,32 @@ class ImageChatWidget extends StatelessWidget {
       child: Stack(
         // crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            height: height * 0.27,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage(chatData['imageUrl'].toString()),
-                fit: BoxFit.cover
-              ),
-              borderRadius: BorderRadius.only(
-                  bottomLeft: const Radius.circular(24),
-                  bottomRight: Radius.circular(_auth.uid.toString() == chatData['senderUid'] ? 0 : 24),
-                  topLeft: Radius.circular(_auth.uid.toString() != chatData['senderUid'] ? 0 : 22),
-                  topRight: const Radius.circular(24)
-              )
+          // Container(
+          //   height: height * 0.27,
+          //   decoration: BoxDecoration(
+          //     image: DecorationImage(
+          //       image: NetworkImage(chatData['imageUrl'].toString()),
+          //       fit: BoxFit.cover
+          //     ),
+          //     borderRadius: BorderRadius.only(
+          //         bottomLeft: const Radius.circular(24),
+          //         bottomRight: Radius.circular(_auth.uid.toString() == chatData['senderUid'] ? 0 : 24),
+          //         topLeft: Radius.circular(_auth.uid.toString() != chatData['senderUid'] ? 0 : 22),
+          //         topRight: const Radius.circular(24)
+          //     )
+          //   ),
+          // ),
+
+          ClipRRect(
+      borderRadius: BorderRadius.only(
+      bottomLeft: const Radius.circular(24),
+        bottomRight: Radius.circular(_auth.uid.toString() == chatData['senderUid'] ? 0 : 24),
+        topLeft: Radius.circular(_auth.uid.toString() != chatData['senderUid'] ? 0 : 22),
+        topRight: const Radius.circular(24)
+    ),
+            child: FadeInImage(
+              placeholder: AssetImage('images/chat_image_loading_2.gif'),
+              image: NetworkImage(chatData['imageUrl'].toString()),
             ),
           ),
 
