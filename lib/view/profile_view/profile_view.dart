@@ -50,7 +50,7 @@ class ProfileView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       MyText(
-                        title: "User Name",
+                        title: "M Hashim",
                         fontSize: 20,
                         fontWeight: FontWeight.w500,
                       ),
