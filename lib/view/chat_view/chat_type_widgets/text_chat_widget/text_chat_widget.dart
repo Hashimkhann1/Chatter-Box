@@ -20,10 +20,10 @@ class TextChatWidget extends StatelessWidget {
       decoration: BoxDecoration(
           color: chatData['senderUid'] != reciverId ? Colors.grey.shade800 : MyColor.blueColor,
           borderRadius: BorderRadius.only(
-              bottomLeft: const Radius.circular(24),
-              bottomRight: Radius.circular(_auth.uid.toString() == chatData['senderUid'] ? 0 : 24),
-              topLeft: Radius.circular(_auth.uid.toString() != chatData['senderUid'] ? 0 : 22),
-              topRight: const Radius.circular(24)
+              bottomLeft: const Radius.circular(14),
+              bottomRight: Radius.circular(_auth.uid.toString() == chatData['senderUid'] ? 0 : 14),
+              topLeft: Radius.circular(_auth.uid.toString() != chatData['senderUid'] ? 0 : 14),
+              topRight: const Radius.circular(14)
           )),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
