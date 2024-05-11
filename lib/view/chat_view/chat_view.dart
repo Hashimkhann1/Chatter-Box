@@ -108,6 +108,7 @@ class ChatView extends StatelessWidget {
                           //   color: MyColor.grayColor,
                           // ),
                           hintText: "Type something...",
+                          prefixIcon: Icon(Icons.mic),
                           hintStyle:
                           const TextStyle(color: MyColor.grayColor, fontSize: 14),
                           filled: true,
