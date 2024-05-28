@@ -7,7 +7,6 @@ import 'package:chatter_box/view/chat_view/chat_type_widgets/text_chat_widget/te
 import 'package:chatter_box/view_model/bloc/pick_image_from_gallery/pick_image_bloc/pick_image_bloc.dart';
 import 'package:chatter_box/view_model/bloc/pick_image_from_gallery/pick_image_event_bloc/pick_image_event_bloc.dart';
 import 'package:chatter_box/view_model/chat_view_model/chat_view_model.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -64,12 +63,12 @@ class ChatView extends StatelessWidget {
                       child: CircularProgressIndicator(color: MyColor.whiteColor,),
                     );
                   }
-                  print(_auth.uid+'_'+reciverId);
+                  print('${_auth.uid}_$reciverId');
                   print(snapshot.data!.docs.length);
                   return Expanded(
                     child: Padding(
                       padding: const EdgeInsets.only(bottom: 16.0, top: 10),
-                      child: snapshot.data!.docs.length == 0 ? const Center(
+                      child: snapshot.data!.docs.isEmpty ? const Center(
                         child: MyText(title: 'Message not recieve or sended yet!',fontSize: 17,fontWeight: FontWeight.w700,),
                       ) :  ListView.builder(
                           itemCount: snapshot.data!.docs.length,
@@ -108,7 +107,7 @@ class ChatView extends StatelessWidget {
                           //   color: MyColor.grayColor,
                           // ),
                           hintText: "Type something...",
-                          prefixIcon: Icon(Icons.mic),
+                          prefixIcon: const Icon(Icons.mic),
                           hintStyle:
                           const TextStyle(color: MyColor.grayColor, fontSize: 14),
                           filled: true,

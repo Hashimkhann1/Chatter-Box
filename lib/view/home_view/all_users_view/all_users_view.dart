@@ -36,17 +36,17 @@ class AllUsersView extends StatelessWidget {
       title: MyText(title: userName.toString(),fontSize: 20,fontWeight: FontWeight.w600,),
       subtitle: Row(
         children: [
-          Icon(Icons.done_all,size: 18,color: MyColor.blueColor,),
+          const Icon(Icons.done_all,size: 18,color: MyColor.blueColor,),
           SizedBox(width: width * 0.01,),
-          Expanded(child: MyText(title: 'What was the best year of your life?',color: MyColor.grayColor,overflow: TextOverflow.ellipsis,fontSize: 13,maxLines: 1,)),
+          const Expanded(child: MyText(title: 'What was the best year of your life?',color: MyColor.grayColor,overflow: TextOverflow.ellipsis,fontSize: 13,maxLines: 1,)),
         ],
       ),
       trailing: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          MyText(title: '04.01',fontSize: 14,fontWeight: FontWeight.w300,),
+          const MyText(title: '04.01',fontSize: 14,fontWeight: FontWeight.w300,),
           SizedBox(height: height * 0.008,),
-          CircleAvatar(
+          const CircleAvatar(
             radius: 11,
             backgroundColor: MyColor.blueColor,
             child: MyText(title: '2',),

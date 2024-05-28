@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         // home: BottomNavigatorView()
-        home: SplashView()
+        home: const SplashView()
     ));
   }
 }

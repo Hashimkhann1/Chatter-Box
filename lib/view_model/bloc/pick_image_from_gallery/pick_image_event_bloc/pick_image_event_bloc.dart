@@ -16,5 +16,5 @@ class PickImageFromGallery extends PickImageEventBloc {
   final BuildContext context;
   final String reciverId;
 
-  PickImageFromGallery({required this.context,required this.reciverId});
+  const PickImageFromGallery({required this.context,required this.reciverId});
 }

@@ -5,7 +5,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class HomeView extends StatelessWidget {
   HomeView({super.key});
@@ -34,13 +33,13 @@ class HomeView extends StatelessWidget {
               height: height * 0.06,
               child: TextFormField(
                 decoration: InputDecoration(
-                    prefixIcon: Icon(
+                    prefixIcon: const Icon(
                       CupertinoIcons.search,
                       color: MyColor.grayColor,
                     ),
                     hintText: "Search you chat",
                     hintStyle:
-                        TextStyle(color: MyColor.grayColor, fontSize: 13),
+                        const TextStyle(color: MyColor.grayColor, fontSize: 13),
                     filled: true,
                     fillColor: MyColor.lightblackColor,
                     border: OutlineInputBorder(
@@ -50,7 +49,7 @@ class HomeView extends StatelessWidget {
             ),
 
             //////// Recent Update Widget ///////
-            RecentUpdateView(),
+            const RecentUpdateView(),
             SizedBox(
               height: height * 0.01,
             ),
@@ -69,14 +68,14 @@ class HomeView extends StatelessWidget {
                     FirebaseFirestore.instance.collection('users').snapshots(),
                 builder: (context, snapshot) {
                   if (snapshot.hasError) {
-                    return Center(
+                    return const Center(
                       child: CircularProgressIndicator(
                         color: Colors.red,
                       ),
                     );
                   } else if (snapshot.connectionState ==
                       ConnectionState.waiting) {
-                    return Center(
+                    return const Center(
                       child: CircularProgressIndicator(
                         color: MyColor.whiteColor,
                       ),
@@ -88,7 +87,7 @@ class HomeView extends StatelessWidget {
                         itemBuilder: (context, index) {
                           return Padding(
                             padding: const EdgeInsets.symmetric(vertical: 4.0),
-                            child: snapshot.data!.docs[index].id.toString() == _auth.uid.toString() ? SizedBox() : AllUsersView(
+                            child: snapshot.data!.docs[index].id.toString() == _auth.uid.toString() ? const SizedBox() : AllUsersView(
                               userName: snapshot.data!.docs[index]['userName']
                                   .toString(),
                               imagesPath: MyColor.images[index].toString(),

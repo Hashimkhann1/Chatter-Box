@@ -8,7 +8,7 @@ import 'package:chatter_box/view_model/bloc/loading_bloc/loading_state/loading_s
 class LoadingBloc extends Bloc<LoadingEvent , LoadingState> {
 
 
-  LoadingBloc() : super(LoadingState()) {
+  LoadingBloc() : super(const LoadingState()) {
     on<SetLoading>(_setLoading);
   }
 

@@ -1,7 +1,6 @@
 import 'package:chatter_box/res/my_colors.dart';
 import 'package:chatter_box/view/add_firends_view/add_firends_view.dart';
 import 'package:chatter_box/view/call_history_view/call_history_view.dart';
-import 'package:chatter_box/view/chat_view/chat_view.dart';
 import 'package:chatter_box/view/home_view/home_view.dart';
 import 'package:chatter_box/view/profile_view/profile_view.dart';
 import 'package:flutter/cupertino.dart';
@@ -17,8 +16,8 @@ class BottomNavigatorView extends StatefulWidget {
 class _BottomNavigatorViewState extends State<BottomNavigatorView> {
   List allViews = [
     HomeView(),
-    CallHistoryView(),
-    AddFriendsView(),
+    const CallHistoryView(),
+    const AddFriendsView(),
     ProfileView(),
   ];
 
@@ -75,9 +74,9 @@ class _BottomNavigatorViewState extends State<BottomNavigatorView> {
               ],
               selectedItemColor: MyColor.whiteColor,
               unselectedItemColor: MyColor.grayColor,
-              selectedLabelStyle: TextStyle(
+              selectedLabelStyle: const TextStyle(
                   color: Colors.white), // Set selected label color to white
-              unselectedLabelStyle: TextStyle(color: Colors.white)),
+              unselectedLabelStyle: const TextStyle(color: Colors.white)),
         ),
       ),
     );

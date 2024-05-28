@@ -3,7 +3,6 @@ import 'package:chatter_box/res/widgets/my_text.dart';
 import 'package:chatter_box/res/widgets/my_text_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class AddFriendsView extends StatelessWidget {
   const AddFriendsView({super.key});
@@ -21,7 +20,7 @@ class AddFriendsView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: height * 0.03,),
-              MyText(title: "Add new friends",fontSize: 18,fontWeight: FontWeight.w600,),
+              const MyText(title: "Add new friends",fontSize: 18,fontWeight: FontWeight.w600,),
               SizedBox(height: height * 0.02,),
 
               //////// search friends text field ////////
@@ -30,9 +29,9 @@ class AddFriendsView extends StatelessWidget {
                 height: height * 0.06,
                 child: TextFormField(
                   decoration: InputDecoration(
-                      prefixIcon: Icon(CupertinoIcons.search,color: MyColor.grayColor,),
+                      prefixIcon: const Icon(CupertinoIcons.search,color: MyColor.grayColor,),
                       hintText: "Search you friends with name",
-                      hintStyle: TextStyle(
+                      hintStyle: const TextStyle(
                           color: MyColor.grayColor,
                           fontSize: 13
                       ),
@@ -50,7 +49,7 @@ class AddFriendsView extends StatelessWidget {
               Expanded(
                 child: GridView.builder(
                   itemCount: MyColor.images.length,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       crossAxisSpacing: 4,
                       mainAxisSpacing: 4,
@@ -59,8 +58,8 @@ class AddFriendsView extends StatelessWidget {
                     itemBuilder: (context , index) {
                       return Card(
                         child: Container(
-                          padding: EdgeInsets.all(4),
-                          margin: EdgeInsets.all(4),
+                          padding: const EdgeInsets.all(4),
+                          margin: const EdgeInsets.all(4),
                           decoration: BoxDecoration(
                             color: MyColor.lightblackColor,
                             boxShadow: [
@@ -75,7 +74,7 @@ class AddFriendsView extends StatelessWidget {
                             children: [
                               CircleAvatar(radius: 24,backgroundImage: NetworkImage(MyColor.images[index].toString(),)),
                               SizedBox(width: width * 0.03,),
-                              Column(
+                              const Column(
                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [

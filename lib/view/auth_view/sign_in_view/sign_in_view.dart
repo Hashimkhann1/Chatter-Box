@@ -5,7 +5,6 @@ import 'package:chatter_box/res/widgets/my_text_form_field.dart';
 import 'package:chatter_box/view/auth_view/sign_up_view/sign_up_view.dart';
 import 'package:chatter_box/view_model/auth_view_model/auth_view_model.dart';
 import 'package:chatter_box/view_model/bloc/loading_bloc/loading_bloc/loading_bloc.dart';
-import 'package:chatter_box/view_model/bloc/loading_bloc/loading_event/loading_event.dart';
 import 'package:chatter_box/view_model/bloc/loading_bloc/loading_state/loading_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -31,9 +30,9 @@ class SignInView extends StatelessWidget {
       backgroundColor: MyColor.backgroundColor,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        actions: [
+        actions: const [
           Padding(
-            padding: const EdgeInsets.only(right: 8.0),
+            padding: EdgeInsets.only(right: 8.0),
             child: Icon(CupertinoIcons.chat_bubble_fill,color: MyColor.blueColor,size: 30,),
           ),
         ],
@@ -50,7 +49,7 @@ class SignInView extends StatelessWidget {
               child: Column(
                 children: [
                   /// login title
-                  MyText(
+                  const MyText(
                     title: "Login",
                     fontSize: 30,
                     fontWeight: FontWeight.w800,
@@ -113,7 +112,7 @@ class SignInView extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      MyText(
+                      const MyText(
                         title: "Dont't have an account",
                         fontWeight: FontWeight.w600,
                         fontSize: 15,

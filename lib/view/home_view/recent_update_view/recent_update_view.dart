@@ -17,9 +17,9 @@ class RecentUpdateView extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.only(top: height * 0.013,bottom: height * 0.01,),
-          child: MyText(title: 'Recent Update',fontSize: 16,fontWeight: FontWeight.w500,),
+          child: const MyText(title: 'Recent Update',fontSize: 16,fontWeight: FontWeight.w500,),
         ),
-        Container(
+        SizedBox(
           height: height * 0.125,
           // color: Colors.red,
           child: ListView.builder(
@@ -32,7 +32,7 @@ class RecentUpdateView extends StatelessWidget {
                     Container(
                       width: width * 0.16,
                       height: height * 0.09,
-                      margin: EdgeInsets.symmetric(horizontal: 6),
+                      margin: const EdgeInsets.symmetric(horizontal: 6),
                       decoration: BoxDecoration(
                           color: MyColor.whiteColor,
                           shape: BoxShape.circle,
@@ -46,7 +46,7 @@ class RecentUpdateView extends StatelessWidget {
                     SizedBox(height: height * 0.004,),
 
                     //// user name ///
-                    MyText(title: 'User Name',fontSize: 13,)
+                    const MyText(title: 'User Name',fontSize: 13,)
                   ],
                 );
               }),

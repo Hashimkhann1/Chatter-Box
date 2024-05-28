@@ -1,7 +1,6 @@
 import 'package:chatter_box/res/my_colors.dart';
 import 'package:chatter_box/res/widgets/my_text.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ImageChatWidget extends StatelessWidget {
@@ -19,7 +18,7 @@ class ImageChatWidget extends StatelessWidget {
     return Container(
       width: 200,
       margin: const EdgeInsets.symmetric(vertical: 5),
-      padding: EdgeInsets.all(4),
+      padding: const EdgeInsets.all(4),
       decoration: BoxDecoration(
           color: chatData['senderUid'] != reciverId ? Colors.grey.shade800 : MyColor.blueColor,
           borderRadius: BorderRadius.only(
@@ -55,16 +54,16 @@ class ImageChatWidget extends StatelessWidget {
         topRight: const Radius.circular(24)
     ),
             child: FadeInImage(
-              placeholder: AssetImage('images/chat_image_loading_2.gif'),
+              placeholder: const AssetImage('images/chat_image_loading_2.gif'),
               image: NetworkImage(chatData['imageUrl'].toString()),
             ),
           ),
 
           // SizedBox(height: height * 0.001,),
-          Positioned(
+          const Positioned(
             bottom: 3,
             right: 14,
-            child: const Align(
+            child: Align(
                 alignment: Alignment.centerRight,
                 child: MyText(title: '9:56 AM',fontSize: 11,fontWeight: FontWeight.bold,)),
           )

@@ -31,7 +31,7 @@ class MyTextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return isLoading ? CircularProgressIndicator(color: MyColor.whiteColor,) : InkWell(
+    return isLoading ? const CircularProgressIndicator(color: MyColor.whiteColor,) : InkWell(
       onTap: onTap,
       child: Container(
         width: width,

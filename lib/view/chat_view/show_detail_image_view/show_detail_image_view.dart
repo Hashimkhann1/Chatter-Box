@@ -4,9 +4,7 @@ import 'package:chatter_box/res/widgets/my_text.dart';
 import 'package:chatter_box/view_model/bloc/loading_bloc/loading_bloc/loading_bloc.dart';
 import 'package:chatter_box/view_model/bloc/loading_bloc/loading_state/loading_state.dart';
 import 'package:chatter_box/view_model/chat_view_model/chat_view_model.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ShowDetailImageView extends StatelessWidget {
@@ -25,14 +23,14 @@ class ShowDetailImageView extends StatelessWidget {
     return Scaffold(
       backgroundColor: MyColor.backgroundColor,
       appBar: AppBar(
-        title: MyText(title: 'Send Image'),
+        title: const MyText(title: 'Send Image'),
       ),
       body: SingleChildScrollView(
         child: Column(
           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             /// image
-            Container(
+            SizedBox(
               height: height * 0.78,
               child: Container(
                 height: height,
@@ -56,11 +54,11 @@ class ShowDetailImageView extends StatelessWidget {
                       decoration: InputDecoration(
                         hintText: "Write something...",
                         border: OutlineInputBorder(
-                          borderSide: BorderSide(color: MyColor.blueColor),
+                          borderSide: const BorderSide(color: MyColor.blueColor),
                           borderRadius: BorderRadius.circular(30)
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: MyColor.blueColor),
+                          borderSide: const BorderSide(color: MyColor.blueColor),
                             borderRadius: BorderRadius.circular(30)
                         )
                       ),
@@ -69,15 +67,15 @@ class ShowDetailImageView extends StatelessWidget {
                   BlocBuilder<LoadingBloc , LoadingState>(builder: (context , state) {
                     return Container(
                         alignment: Alignment.center,
-                        margin: EdgeInsets.only(left: 6),
+                        margin: const EdgeInsets.only(left: 6),
                         decoration: BoxDecoration(
                             color: state.isLoading ? MyColor.backgroundColor : MyColor.blueColor,
                             shape: BoxShape.circle
                         ),
-                        child: state.isLoading ? CircularProgressIndicator(color: MyColor.blueColor,) : IconButton(onPressed: () {
+                        child: state.isLoading ? const CircularProgressIndicator(color: MyColor.blueColor,) : IconButton(onPressed: () {
                           chatViewModel.sendChatMessage(context, reciverId, textMessageController.text, imagePath);
                           // print(textMessageController.text);
-                        }, icon: Icon(Icons.send))
+                        }, icon: const Icon(Icons.send))
                     );
                   }),
                 ],

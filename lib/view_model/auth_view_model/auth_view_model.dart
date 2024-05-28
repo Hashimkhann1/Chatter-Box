@@ -5,7 +5,6 @@ import 'package:chatter_box/view/bottom_navigator_view/bottom_navigator_view.dar
 import 'package:chatter_box/view_model/bloc/loading_bloc/loading_bloc/loading_bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -37,7 +36,7 @@ class AuthViewModel {
       /// starting loading of button
       context.read<LoadingBloc>().add(SetLoading());
       await _auth.signInWithEmailAndPassword(email: email, password: password).then((value) {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavigatorView()));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => const BottomNavigatorView()));
         Constant().toastMessage("Login Successfully");
 
         /// stopping loading of button
@@ -63,7 +62,7 @@ class AuthViewModel {
         /// stopping loading of button
         context.read<LoadingBloc>().add(SetLoading());
 
-        Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavigatorView()));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => const BottomNavigatorView()));
       });
     }on FirebaseAuthException catch(error){
       /// stopping loading of button incase of error

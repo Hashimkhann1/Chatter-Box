@@ -4,7 +4,6 @@ import 'package:chatter_box/view_model/auth_view_model/auth_view_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class ProfileView extends StatelessWidget {
   ProfileView({super.key});
@@ -26,7 +25,7 @@ class ProfileView extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Stack(
+                  const Stack(
                     children: [
                       CircleAvatar(
                         radius: 50,
@@ -49,7 +48,7 @@ class ProfileView extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      MyText(
+                      const MyText(
                         title: "M Hashim",
                         fontSize: 20,
                         fontWeight: FontWeight.w500,
@@ -65,24 +64,24 @@ class ProfileView extends StatelessWidget {
                 ],
               ),
               SizedBox(height: height * 0.07,),
-              Card(
+              const Card(
                   child: ListTile(
                 title: MyText(title: 'Edit profile'),
                 trailing: Icon(CupertinoIcons.arrow_right),
               )),
-              Card(
+              const Card(
                   child: ListTile(
                 title: MyText(title: 'Total friends'),
                 trailing: MyText(title: '10'),
               )),
               Card(
                   child: ListTile(
-                title: MyText(title: 'Notificatons'),
+                title: const MyText(title: 'Notificatons'),
                 trailing: Switch(value: false, onChanged: (value) {},activeColor: MyColor.blueColor,),
               )),
               Card(
                   child: ListTile(
-                title: MyText(title: 'Night Theme'),
+                title: const MyText(title: 'Night Theme'),
                 trailing: Switch(value: true, onChanged: (value) {},activeColor: MyColor.blueColor,),
               )),
               Card(
@@ -90,8 +89,8 @@ class ProfileView extends StatelessWidget {
                     onTap: () {
                       authViewModel.signOut(context);
                     },
-                title: MyText(title: 'Sign Out'),
-                trailing: Icon(Icons.logout),
+                title: const MyText(title: 'Sign Out'),
+                trailing: const Icon(Icons.logout),
               ))
             ],
           ),

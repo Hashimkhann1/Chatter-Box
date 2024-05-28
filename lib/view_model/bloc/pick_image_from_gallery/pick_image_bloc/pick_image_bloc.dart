@@ -1,6 +1,5 @@
 
 
-import 'dart:io';
 
 import 'package:bloc/bloc.dart';
 import 'package:chatter_box/view/chat_view/show_detail_image_view/show_detail_image_view.dart';
@@ -15,7 +14,7 @@ class PickImageBloc extends Bloc<PickImageEventBloc , PickImageState> {
   final ChatViewModel chatViewModel;
 
 
-  PickImageBloc(this.chatViewModel) : super(PickImageState()) {
+  PickImageBloc(this.chatViewModel) : super(const PickImageState()) {
     on<PickImageFromGallery>(_pickImageFromGallery);
   }
 
