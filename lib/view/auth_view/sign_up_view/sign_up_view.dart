@@ -1,10 +1,8 @@
-import 'package:chatter_box/res/constatnt/constant.dart';
 import 'package:chatter_box/res/my_colors.dart';
 import 'package:chatter_box/res/widgets/my_text.dart';
 import 'package:chatter_box/res/widgets/my_text_button.dart';
 import 'package:chatter_box/res/widgets/my_text_form_field.dart';
 import 'package:chatter_box/view/auth_view/sign_in_view/sign_in_view.dart';
-import 'package:chatter_box/view/bottom_navigator_view/bottom_navigator_view.dart';
 import 'package:chatter_box/view_model/auth_view_model/auth_view_model.dart';
 import 'package:chatter_box/view_model/bloc/loading_bloc/loading_bloc/loading_bloc.dart';
 import 'package:chatter_box/view_model/bloc/loading_bloc/loading_state/loading_state.dart';
@@ -43,7 +41,7 @@ class SignUpView extends StatelessWidget {
             child: Column(
               children: [
                 /// login title
-                MyText(
+                const MyText(
                   title: "Register",
                   fontSize: 30,
                   fontWeight: FontWeight.w800,
@@ -158,7 +156,7 @@ class SignUpView extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    MyText(
+                    const MyText(
                       title: "Already have an account",
                       fontWeight: FontWeight.w600,
                       fontSize: 15,
