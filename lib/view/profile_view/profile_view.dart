@@ -1,9 +1,11 @@
 import 'package:chatter_box/res/my_colors.dart';
 import 'package:chatter_box/res/widgets/my_text.dart';
 import 'package:chatter_box/view_model/auth_view_model/auth_view_model.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:chatter_box/view_model/bloc/current_user_bloc/current_user_bloc/current_user_bloc.dart';
+import 'package:chatter_box/view_model/bloc/current_user_bloc/current_user_state/current_user_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProfileView extends StatelessWidget {
   ProfileView({super.key});
@@ -45,22 +47,25 @@ class ProfileView extends StatelessWidget {
                   SizedBox(
                     width: width * 0.03,
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const MyText(
-                        title: "M Hashim",
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500,
-                      ),
-                      MyText(
-                        title: FirebaseAuth.instance.currentUser!.email.toString(),
-                        fontSize: 15,
-                        fontWeight: FontWeight.w400,
-                        color: MyColor.grayColor,
-                      ),
-                    ],
-                  )
+                  BlocBuilder<CurrentUserBloc , CurrentUserState>(builder: (context , state){
+                    print(state.currentUserDataList[0].userName.toString());
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        MyText(
+                          title: state.currentUserDataList[0].userName.toString(),
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        MyText(
+                          title: state.currentUserDataList[0].email.toString(),
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400,
+                          color: MyColor.grayColor,
+                        ),
+                      ],
+                    );
+                  })
                 ],
               ),
               SizedBox(height: height * 0.07,),
